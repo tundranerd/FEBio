@@ -1,7 +1,14 @@
 on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronized
+      - closed
   push:
     branches:
       - 'ci/develop'
+      - 'ci/pull_request_test'
   workflow_dispatch:
     inputs:
       runTests:
