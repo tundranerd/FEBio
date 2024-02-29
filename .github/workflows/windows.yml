@@ -1,7 +1,16 @@
+name: CI - Windows
+
 on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - closed
   push:
     branches:
       - 'ci/develop'
+      - 'ci/pull_request_test'
   workflow_dispatch:
     inputs:
       runTests:
