@@ -1,3 +1,4 @@
+name: CI - Linux
 on:
   pull_request:
     types:
