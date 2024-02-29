@@ -24,7 +24,7 @@ jobs:
   call_workflow:
     uses: tundranerd/febio-workflows/.github/workflows/linux-reusable.yml@develop
     with:
-      runTests: ${{ inputs.runTests && true || false }}
+      runTests: ${{ inputs.runTests == 'true' || github.event_name == 'pull_request' }}
       package-name: febio4
       package-sdk: true
       aws-ami-id: ami-0590ebdb5afffb782

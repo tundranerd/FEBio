@@ -22,7 +22,7 @@ jobs:
   call_workflow:
     uses: febiosoftware/febio-workflows/.github/workflows/windows-reusable.yml@develop
     with:
-      runTests: ${{ inputs.runTests && true || false }}
+      runTests: ${{ inputs.runTests == 'true' || github.event_name == 'pull_request' }}
       package-name: febio4
       package-sdk: true
       aws-ami-id: ami-0b18c665dbe9efa75
