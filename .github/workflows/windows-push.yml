@@ -1,12 +1,6 @@
-name: CI - Windows
+name: CI - Windows Push
 
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - closed
   push:
     branches:
       - 'ci/develop'
@@ -25,7 +19,7 @@ jobs:
   call_workflow:
     uses: febiosoftware/febio-workflows/.github/workflows/windows-reusable.yml@develop
     with:
-      runTests: ${{ inputs.runTests == 'true' || github.event_name == 'pull_request' }}
+      runTests: ${{ inputs.runTests == 'true' }}
       package-name: febio4
       package-sdk: true
       aws-ami-id: ami-0b18c665dbe9efa75
