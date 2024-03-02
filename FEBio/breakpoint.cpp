@@ -170,6 +170,6 @@ int check_break(int nwhen, double t)
 				return i;
 			}
 		}
-    //}
+    }
 	return -1;
 }
