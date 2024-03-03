@@ -1,2 +1,2 @@
 call "%ONEAPI_ROOT%\setvars.bat" --force
-FEBIO_TEST_BIN=./cmbuild/bin/febio4  python ./TestSuite/code/tools.py -r
+python ./TestSuite/code/tools.py -r ./cmbuild/bin/Release/febio4.exe
