@@ -6,4 +6,4 @@ source "/opt/intel/oneapi/setvars.sh" --force
 cmake . -B cmbuild -LA
 pushd cmbuild
 make -j $(nproc)
-popd
+#popd
