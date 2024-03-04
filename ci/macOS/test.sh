@@ -10,7 +10,7 @@ FEBIO_LIB=./cmbuild/lib
 FEBIO_BIN="${FEBIO_DIR}/febio4"
 
 FEBIOHEAT=./febioheat/lib/libFEBioHeat.dylib
-FEBIOCHEM=./febioheat/lib/libFEBioHeat.dylib
+FEBIOCHEM=./febiochem/lib/libFEBioChem.dylib
 
 TESTSUITE=./TestSuite
 
