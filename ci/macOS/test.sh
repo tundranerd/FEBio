@@ -5,12 +5,12 @@ set -e
 chmod +x cmbuild/bin/febio4
 
 FEBIO_XML="$(dirname $0)/febio.xml"
-FEBIO_DIR=./cmbuild/bin
-FEBIO_LIB=./cmbuild/lib
+FEBIO_DIR=$(realpath ./cmbuild/bin)
+FEBIO_LIB=$(realpath ./cmbuild/lib)
 FEBIO_BIN="${FEBIO_DIR}/febio4"
 
-FEBIOHEAT=./febioheat/lib/libFEBioHeat.dylib
-FEBIOCHEM=./febiochem/lib/libFEBioChem.dylib
+FEBIOHEAT=$(realpath ./febioheat/lib/libFEBioHeat.dylib)
+FEBIOCHEM=$(realpath ./febiochem/lib/libFEBioChem.dylib)
 
 TESTSUITE=./TestSuite
 
@@ -26,5 +26,6 @@ if [[ -f "$FEBIOCHEM" ]]; then
     cp $FEBIOCHEM $FEBIO_LIB
 fi
 
+# Copy configuration in
 cp $FEBIO_XML $FEBIO_DIR
 ./TestSuite/code/tools.py -r $FEBIO_BIN

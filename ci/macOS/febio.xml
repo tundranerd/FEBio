@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <febio_config version="3.0">
     <default_linear_solver type="pardiso"></default_linear_solver>
-    <set name="PluginsDir">../lib</set>
-    <import>$(PluginsDir)/libFEBioChem.dylib</import>
-    <import>$(PluginsDir)/libFEBioHeat.dylib</import>
+    <import>libFEBioChem.dylib</import>
+    <import>libFEBioHeat.dylib</import>
 </febio_config>

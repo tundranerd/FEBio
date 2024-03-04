@@ -116,7 +116,7 @@ else()
 		DOC "HYPRE include directory")
 	find_library(HYPRE_LIB HYPRE 
         PATHS /opt/hypre* $ENV{HOME}/* $ENV{HOME}/*/*
-        PATH_SUFFIXES "src" "src/build" "src/cbuild"
+        PATH_SUFFIXES "lib" "src" "src/build" "src/cbuild"
 		DOC "HYPRE library path")
 endif()	
 
@@ -145,7 +145,7 @@ else()
 		DOC "MMG include directory")
 	find_library(MMG_LIB mmg3d 
         PATHS /opt/mmg* $ENV{HOME}/* $ENV{HOME}/*/*
-        PATH_SUFFIXES "build/lib" "cbuild/lib" "src/build/lib" "src/cbuild/lib"
+        PATH_SUFFIXES "lib" "build/lib" "cbuild/lib" "src/build/lib" "src/cbuild/lib"
 		DOC "MMG library path")
 endif()	
 
@@ -169,7 +169,7 @@ else()
 	find_path(LEVMAR_INC levmar.h PATHS /usr/local/ /opt/levmar* $ENV{HOME}/* $ENV{HOME}/*/*
 		DOC "Levmar include directory")
 	find_library(LEVMAR_LIB levmar PATHS /usr/local/ /opt/levmar* $ENV{HOME}/* $ENV{HOME}/*/*
-        PATH_SUFFIXES "build" "cbuild" "cmbuild"
+        PATH_SUFFIXES "lib" "build" "cbuild" "cmbuild"
 		DOC "Levmar library path")
 endif()	
 
