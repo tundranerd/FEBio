@@ -7,4 +7,4 @@ source "/opt/intel/oneapi/setvars.sh" --force
 . ./cmake.sh
 pushd cmbuild
 make -j $(sysctl -n hw.ncpu)
-#popd
+popd
