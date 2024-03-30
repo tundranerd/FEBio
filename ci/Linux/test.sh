@@ -9,8 +9,8 @@ FEBIO_DIR=$(realpath ./cmbuild/bin)
 FEBIO_LIB=$(realpath ./cmbuild/lib)
 FEBIO_BIN="${FEBIO_DIR}/febio4"
 
-FEBIOHEAT=$(realpath ./febioheat/lib/libFEBioHeat.dylib)
-FEBIOCHEM=$(realpath ./febiochem/lib/libFEBioChem.dylib)
+FEBIOHEAT=$(realpath ./febioheat/lib/libFEBioHeat.so)
+FEBIOCHEM=$(realpath ./febiochem/lib/libFEBioChem.so)
 
 TESTSUITE=./TestSuite
 

@@ -10,7 +10,7 @@ FEBIO_BIN="${FEBIO_DIR}/febio4.exe"
 FEBIOHEAT=$(realpath ./febioheat/Release/FEBioHeat.dll)
 FEBIOCHEM=$(realpath ./febiochem/Release/FEBioChem.dll)
 
-ONEAPI=$(cygpath -u "$ONEAPI_ROOT")
+ONEAPI=$(cygpath -u "$ONEAPI_ROOT") #Convert $ONEAPI_ROOT to posix path
 PYTHON="${ONEAPI}intelpython/latest/python"
 
 IOMP_LIB="${ONEAPI}compiler/latest/windows/redist/intel64_win/compiler/libiomp5md.dll"
