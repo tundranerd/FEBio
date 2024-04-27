@@ -20,7 +20,22 @@ jobs:
           tag=${{ github.ref_name }}
           date="$(git show $tag --format=%aD | head -1)"
           GIT_COMMITTER_DATE="$date" git tag -a -f $tag $tag -m "Annotated ${tag}"
-          git describe
           git push --force origin $tag
+          echo $?
+          git describe --tags
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  call-linux-release:
+    needs: annotate-tag
+    uses: tundranerd/FEBio/.github/workflows/linux-release.yml@develop
+    secrets: inherit
+
+  call-windows-release:
+    needs: annotate-tag
+    uses: tundranerd/FEBio/.github/workflows/windows-release.yml@develop
+    secrets: inherit
+
+  call-macos-release:
+    needs: annotate-tag
+    uses: tundranerd/FEBio/.github/workflows/macos-release.yml@develop
+    secrets: inherit
