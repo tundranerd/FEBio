@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+      - name: Get tags
+        run: git fetch --tags --force origin
+      - id: windows-release
+        run: |
+          echo "Windows Release call ${{github.ref_name}}"
+          git describe --tags
