@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: macos-releaes
+        run: |
+          echo "macOS Release call ${{github.ref_name}}"
+          git describe
