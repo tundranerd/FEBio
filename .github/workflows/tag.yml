@@ -1,0 +1,30 @@
+name: CI - Annotate Tags
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  annotate-tag:
+    name: "Annotate tag"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          submodules: 'true'
+      - name: "Install and Configure git"
+        run: |
+          git config user.email "workflow@febio.org"
+          git config user.name "FEBIo Workflow"
+      - name: "Annotate tag"
+        run: |
+          tag=${{ github.ref_name }}
+          date="$(git show $tag --format=%aD | head -1)"
+          GIT_COMMITTER_DATE="$date" git tag -a -f $tag $tag -m "Annotated ${tag}"
+          git describe
+          git push --force origin $tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
