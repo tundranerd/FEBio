@@ -1,9 +1,8 @@
 name: CI - Annotate Tags
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
   annotate-tag:
@@ -12,10 +11,7 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          submodules: 'true'
-      - name: "Install and Configure git"
+      - name: "Configure git"
         run: |
           git config user.email "workflow@febio.org"
           git config user.name "FEBIo Workflow"
