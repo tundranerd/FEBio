@@ -10,9 +10,10 @@ jobs:
       - name: "Checkout code"
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.client_payload.ref_name }}
           fetch-tags: true
 
       - id: windows-release
         run: |
           echo "Windows Release call ${{github.ref_name}}"
-          git describe --tags ${{ github.event.client_payload.ref_name }}
+          git describe --exact-match ${{ github.event.client_payload.ref_name }}
