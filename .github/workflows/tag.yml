@@ -25,17 +25,16 @@ jobs:
           git describe --tags
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  call-linux-release:
-    needs: annotate-tag
-    uses: tundranerd/FEBio/.github/workflows/linux-release.yml@develop
-    secrets: inherit
 
-  call-windows-release:
-    needs: annotate-tag
-    uses: tundranerd/FEBio/.github/workflows/windows-release.yml@develop
-    secrets: inherit
-
-  call-macos-release:
-    needs: annotate-tag
-    uses: tundranerd/FEBio/.github/workflows/macos-release.yml@develop
-    secrets: inherit
+  dispatch-release-workflow:
+    name: "Repository dispatch release workflow"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: ""
+        run: |
+           gh api \
+             --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/tundranerd/FEBio/dispatches\
+            -f "event_type=release-published" -F "client_payload[ref_name]=${{ github.ref_name }}"

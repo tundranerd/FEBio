@@ -1,5 +1,6 @@
 on:
-  workflow_call:
+  repository_dispatch:
+    types: [release-published]
 
 jobs:
   release:
@@ -7,8 +8,6 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
-      - name: Get tags
-        run: git fetch --tags --force origin
       - name: linux-releaes
         run: |
           echo "Linux Release call ${{github.ref_name}}"
